@@ -8,12 +8,8 @@ import time
 import datetime
 from datetime import datetime, date, time
 
-st.header("Official Date Picker")
-st.date_input('start date')
-st.date_input('end date')
 
-my_date = datetime.now()
-print(my_date.strftime('%Y%m%dT%H%M%SZ'))
+
 
 
 # Data Viz Pkgs
@@ -67,9 +63,11 @@ def main():
 
 			p1 = px.pie(task_df,names='index',values='Categoria')
 			st.plotly_chart(p1,use_container_width=True)
-			
+		
+		task_due_date = st.date_input("Data para Agendar:")
+		my_date = task_due_date.strftime('%Y%m%dT%H%M%SZ'))
 		html = clean_df.to_html()
-		url="https://www.google.com/calendar/render?action=TEMPLATE&text=lista+de+compras&details="+urllib.parse.quote(html)+"&location=Lisboa&dates=20211005T155000Z%2F20211005T155000Z"
+		url="https://www.google.com/calendar/render?action=TEMPLATE&text=lista+de+compras&details="+urllib.parse.quote(html)+"&location=Lisboa&dates="+my_date+"%"+my_date
 
 		link = '[Adicionar_GoogleCalendar]('+url+')'
 		st.markdown(link, unsafe_allow_html=True)
