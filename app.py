@@ -65,7 +65,8 @@ def main():
 			st.plotly_chart(p1,use_container_width=True)
 		
 		task_due_date = st.date_input("Data para Agendar:")
-		my_date = task_due_date.strftime('%Y%m%dT%H%M%SZ'))
+		#my_date = task_due_date.strftime('%Y%m%dT%H%M%SZ'))
+		my_date = "20211005T155000Z"
 		html = clean_df.to_html()
 		url="https://www.google.com/calendar/render?action=TEMPLATE&text=lista+de+compras&details="+urllib.parse.quote(html)+"&location=Lisboa&dates="+my_date+"%"+my_date
 
