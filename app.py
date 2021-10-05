@@ -4,7 +4,16 @@ from db_fxns import *
 import streamlit.components.v1 as stc
 import urllib.parse
 
+import time
+import datetime
+from datetime import datetime, date, time
 
+st.header("Official Date Picker")
+st.date_input('start date')
+st.date_input('end date')
+
+my_date = datetime.now()
+print(my_date.strftime('%Y%m%dT%H%M%SZ'))
 
 
 # Data Viz Pkgs
